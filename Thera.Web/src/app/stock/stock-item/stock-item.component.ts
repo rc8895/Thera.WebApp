@@ -11,11 +11,26 @@ export class StockItemComponent implements OnInit {
 
   public stockName: string | undefined;
   public stockCode: string | undefined;
+  public isUp : boolean = false;
+  public isSelected : boolean = false;
 
   ngOnInit(): void {
     this.stockName = "stock-item";
     this.stockCode = "stk_t";
+    this.isUp = false;
   }
 
-  protected readonly name = name;
+  onMouseEnter() {
+    this.isSelected = true;
+  }
+
+  onMouseLeave() {
+    this.isSelected = false;
+  }
+
+  toggleStatus(){
+    this.isUp = !this.isUp;
+  }
+
+
 }

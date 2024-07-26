@@ -1,5 +1,13 @@
-<div>
-  <h3>Cool stock! Not a scam</h3>
-  <h6>Name: {{stockName}}</h6>
-  <h6>Code: {{stockCode}}</h6>
-</div>
+<section (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <div class="card {{isSelected ? 'shadow' : 'shadow-shadow-sm'}}" style="width: 18rem;">
+    <div class="card-header {{isUp ? 'bg-success' : 'bg-danger'}}">
+      {{ isUp ? 'up' : 'down' }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Stock</h5>
+      <p class="card-text">Name: {{ stockName }}</p>
+      <p class="card-text">Code: {{ stockCode }}</p>
+      <a href="#" class="btn btn-primary" (click)="toggleStatus()">Buy</a>
+    </div>
+  </div>
+</section>
