@@ -1,6 +1,8 @@
-<button (click)="showModal()">Login</button>
+<button [ngClass]="displayClasses()" (click)="showModal()">
+  <i class="bi bi-person"></i> {{displayText()}}
+</button>
 
-<app-modal *ngIf="showLoginPage" (modalClosed)="closeModal()">
+<app-modal *ngIf="showLoginPage" (modalClosed)="closeModal()" (modalSend)="sendLogin()">
   <div modal-header>Login</div>
   <div modal-body>Please login</div>
 </app-modal>

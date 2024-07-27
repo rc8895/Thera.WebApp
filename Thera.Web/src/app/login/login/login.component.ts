@@ -1,5 +1,5 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {NgIf} from "@angular/common";
+import {Component, OnInit} from '@angular/core';
+import {NgClass, NgIf} from "@angular/common";
 import {ModalComponent} from "../modal/modal.component";
 // import * as $ from 'jquery';
 
@@ -8,32 +8,44 @@ import {ModalComponent} from "../modal/modal.component";
   standalone: true,
   imports: [
     NgIf,
-    ModalComponent
+    ModalComponent,
+    NgClass
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 
-export class LoginComponent {
-  @ViewChild('myElement') myElement: ElementRef<HTMLDivElement> | undefined;
+export class LoginComponent implements OnInit{
 
   isLoggedIn: boolean = false;
   showLoginPage:  boolean = false;
+
+  constructor() {  }
+
+  ngOnInit() {  }
+
+  displayText(){
+    return this.isLoggedIn ? "Logged In" : "Sign In"
+  }
+
+  displayClasses(){
+    return {
+      "btn": true,
+      "btn-primary": !this.isLoggedIn,
+      "btn-outline-primary": this.isLoggedIn,
+    }
+  }
 
   showModal() {
     this.showLoginPage = true;
   }
 
-  ngAfterViewInit() {
-    //  this.myElement.nativeElement.draggable = 'none';
-    //
-    //  $modal.draggable({
-    //    handle: ".modal-header",
-    //  });
-    // $modal.resizable();
-  }
-
   closeModal() {
     this.showLoginPage = false;
+  }
+
+  sendLogin() {
+    this.isLoggedIn = true;
+    this.closeModal();
   }
 }
