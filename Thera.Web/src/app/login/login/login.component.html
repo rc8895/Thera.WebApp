@@ -1,0 +1,7 @@
+<button (click)="showModal()">Login</button>
+
+<app-login-modal *ngIf="showLoginPage" (modalClosed)="closeModal()">
+  <div modal-header>Login</div>
+  <div modal-body>Please login</div>
+</app-login-modal>
+
