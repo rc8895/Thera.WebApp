@@ -1,6 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {NgIf} from "@angular/common";
-import {LoginModalComponent} from "../login-modal/login-modal.component";
+import {ModalComponent} from "../modal/modal.component";
 // import * as $ from 'jquery';
 
 @Component({
@@ -8,7 +8,7 @@ import {LoginModalComponent} from "../login-modal/login-modal.component";
   standalone: true,
   imports: [
     NgIf,
-    LoginModalComponent
+    ModalComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
